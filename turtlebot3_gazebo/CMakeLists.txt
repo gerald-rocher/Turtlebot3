@@ -46,45 +46,17 @@ set(dependencies
   "tf2"
 )
 
-set(EXEC_NAME "turtlebot3_drive")
-
-add_executable(${EXEC_NAME} src/turtlebot3_drive.cpp)
-ament_target_dependencies(${EXEC_NAME} ${dependencies})
-
-# add_library(traffic_light_plugin SHARED src/traffic_light_plugin.cpp)
-# target_link_libraries(traffic_light_plugin ${GAZEBO_LIBRARIES})
-
-# add_library(traffic_bar_plugin SHARED src/traffic_bar_plugin.cpp)
-# target_link_libraries(traffic_bar_plugin ${GAZEBO_LIBRARIES})
-
-# add_library(obstacle1 SHARED src/obstacle1.cpp)
-# target_link_libraries(obstacle1 ${GAZEBO_LIBRARIES})
-
-# add_library(obstacle2 SHARED src/obstacle2.cpp)
-# target_link_libraries(obstacle2 ${GAZEBO_LIBRARIES})
-
-# add_library(obstacles SHARED src/obstacles.cpp)
-# target_link_libraries(obstacles ${GAZEBO_LIBRARIES})
-
 ################################################################################
 # Install
 ################################################################################
-install(TARGETS ${EXEC_NAME}
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 install(DIRECTORY launch models params rviz urdf worlds
   DESTINATION share/${PROJECT_NAME}/
 )
 
-install(DIRECTORY include/
-  DESTINATION include/
-)
-
 ################################################################################
 # Macro for ament package
 ################################################################################
-ament_export_include_directories(include)
 ament_export_dependencies(ros_gz_bridge)
 ament_export_dependencies(ros_gz_sim)
 ament_export_dependencies(geometry_msgs)
@@ -93,3 +65,4 @@ ament_export_dependencies(rclcpp)
 ament_export_dependencies(sensor_msgs)
 ament_export_dependencies(tf2)
 ament_package()
+
